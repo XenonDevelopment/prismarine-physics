@@ -596,15 +596,6 @@ class PlayerState {
       this.levitation = 0
     }
     // armour enchantments
-    const boots = bot.inventory.slots[8]
-    if (boots && boots.nbt) {
-      const simplifiedNbt = nbt.simplify(boots.nbt)
-      const enchantments = simplifiedNbt.Enchantments || simplifiedNbt.ench
-      const depthEnchant = enchantments ? enchantments.find(x => x.id === mcData.enchantmentsByName.depth_strider.id || x.id === ('minecraft:' + mcData.enchantmentsByName.depth_strider.name)) : null
-      this.depthStrider = depthEnchant ? depthEnchant.lvl : 0
-    } else {
-      this.depthStrider = 0
-    }
   }
 
   apply (bot) {
